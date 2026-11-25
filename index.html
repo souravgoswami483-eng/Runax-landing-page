@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Runax Institute of Hotel Management | Admissions Open 2027–28</title>
+  <meta name="description" content="Discover your potential in hotel, hospitality, and culinary management at Runax Institute of Hotel Management, Kolkata. Admissions open for 2027–28." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-inner">
+      <span class="sparkle-spin" aria-hidden="true">✦</span>
+      <span>Admissions open for academic session 2027–28</span>
+      <span class="divider-pipe">|</span>
+      <a href="#hero-form" class="announcement-link">Begin your journey</a>
+    </div>
+  </div>
+
+  <!-- Sticky Navigation Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="#top" class="brand" aria-label="Runax Institute of Hotel Management Home">
+        <img src="assets/runax/runax-logo.webp" alt="Runax Institute of Hotel Management" class="brand-logo-img" />
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#programs" class="nav-link">Programs &amp; Studies</a>
+        <a href="#why-us" class="nav-link">Why Choose Us</a>
+        <a href="#gallery" class="nav-link">Our Gallery</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#hero-form" class="btn btn-navy btn-sm nav-cta">Apply Now</a>
+        <button class="hamburger" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobile-drawer-inner">
+        <a href="#about" class="mobile-nav-link">About Us</a>
+        <a href="#programs" class="mobile-nav-link">Programs &amp; Studies</a>
+        <a href="#why-us" class="mobile-nav-link">Why Choose Us</a>
+        <a href="#gallery" class="mobile-nav-link">Our Gallery</a>
+        <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <div class="mobile-drawer-cta">
+          <a href="#hero-form" class="btn btn-crimson btn-block">Apply Now — 2027–28 Intake</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-bg-image" aria-hidden="true"></div>
+      <div class="hero-ambient" aria-hidden="true">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-grid-pattern"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-content reveal" data-reveal="fade-up">
+          <div class="hero-eyebrow">
+            <span class="sparkle-pulse">✦</span>
+            <span>RUNAX INSTITUTE OF HOTEL MANAGEMENT</span>
+          </div>
+          <h1 class="hero-title">
+            Your future starts here.<br />
+            <em class="text-crimson-italic">Your success</em><br />
+            begins at Runax.
+          </h1>
+          <p class="hero-subtitle">
+            Discover your potential in hotel, hospitality, and culinary management. Build the skills to turn your ambition into a professional future.
+          </p>
+          <div class="hero-buttons">
+            <a href="#programs" class="btn btn-crimson btn-lg">
+              <span>Explore Programs</span>
+              <svg class="btn-icon icon-arrow-se" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 5L15 15M15 15V7M15 15H7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#hero-form" class="btn btn-outline-light btn-lg">
+              <span>Start Your Journey</span>
+              <svg class="btn-icon icon-arrow-ne" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 15L15 5M15 5H7M15 5V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Enquiry Form Card -->
+        <div class="hero-form-card reveal" id="hero-form" data-reveal="fade-left">
+          <div class="form-card-header">
+            <div>
+              <h2 class="form-card-title">Start Your Journey</h2>
+              <p class="form-card-subtitle">RUNAX INSTITUTE OF HOTEL MANAGEMENT</p>
+            </div>
+            <span class="intake-badge">2027–28 INTAKE</span>
+          </div>
+
+          <form class="enquiry-form" id="heroEnquiryForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="heroName">Full name <span class="req">*</span></label>
+                <input type="text" id="heroName" name="fullName" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="heroEmail">Email address <span class="req">*</span></label>
+                <input type="email" id="heroEmail" name="email" placeholder="name@email.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="heroPhone">Phone number <span class="req">*</span></label>
+                <input type="tel" id="heroPhone" name="phone" placeholder="+91 98765 43210" required />
+              </div>
+              <div class="form-group">
+                <label for="heroCity">City / location</label>
+                <input type="text" id="heroCity" name="city" placeholder="e.g. Kolkata" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="heroProgram">Select program <span class="req">*</span></label>
+                <select id="heroProgram" name="program" required>
+                  <option value="" disabled selected>Select program</option>
+                  <option value="Hotel Management">Hotel Management</option>
+                  <option value="Hospitality Management">Hospitality Management</option>
+                  <option value="Culinary Management">Culinary Management</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="heroInterest">Study interest</label>
+                <select id="heroInterest" name="interest">
+                  <option value="Help me choose" selected>Help me choose</option>
+                  <option value="Degree Program">Degree Program</option>
+                  <option value="Diploma Program">Diploma Program</option>
+                  <option value="Campus Visit">Campus Visit</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="heroQuery">Personal query (optional)</label>
+              <textarea id="heroQuery" name="query" rows="2" placeholder="Tell us about your interests or questions…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-crimson btn-block btn-submit">
+              <span>Submit</span>
+            </button>
+            <p class="form-helper">Opens your email app with your enquiry ready to send.</p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Trust Strip -->
+      <div class="hero-trust-strip">
+        <div class="container trust-grid">
+          <div class="trust-item reveal" data-reveal="fade-up" style="--delay: 0.05s">
+            <div class="trust-icon anim-icon">
+              <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <rect x="4" y="8" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M10 8V6C10 4.9 10.9 4 12 4H16C17.1 4 18 4.9 18 6V8" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M4 13.5H24" stroke="#E03E52" stroke-width="1.7"/>
+              </svg>
+            </div>
+            <div>
+              <div class="trust-title">Career-focused</div>
+              <div class="trust-sub">Professional education</div>
+            </div>
+          </div>
+
+          <div class="trust-item reveal" data-reveal="fade-up" style="--delay: 0.15s">
+            <div class="trust-icon anim-icon">
+              <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <path d="M6 20H22" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M7 20C7 14.5 10.1 10.5 14 10.5C17.9 10.5 21 14.5 21 20" stroke="currentColor" stroke-width="1.7"/>
+                <circle cx="14" cy="8.5" r="1.5" stroke="#E03E52" stroke-width="1.6"/>
+                <path d="M10 5.5C10 4.5 11 4 11 3" stroke="#E03E52" stroke-width="1.5" stroke-linecap="round" class="steam-line"/>
+                <path d="M17 5.5C17 4.5 18 4 18 3" stroke="#E03E52" stroke-width="1.5" stroke-linecap="round" class="steam-line delay-1"/>
+              </svg>
+            </div>
+            <div>
+              <div class="trust-title">Practical</div>
+              <div class="trust-sub">Campus training labs</div>
+            </div>
+          </div>
+
+          <div class="trust-item reveal" data-reveal="fade-up" style="--delay: 0.25s">
+            <div class="trust-icon anim-icon">
+              <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <circle cx="14" cy="14" r="9.5" stroke="currentColor" stroke-width="1.7"/>
+                <ellipse cx="14" cy="14" rx="4.2" ry="9.5" stroke="#E03E52" stroke-width="1.5"/>
+                <path d="M5 14H23" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div>
+              <div class="trust-title">Global</div>
+              <div class="trust-sub">Industry exposure</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Learn. Grow. Lead. Section -->
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-copy reveal" data-reveal="fade-up">
+          <span class="eyebrow">LEARN. GROW. LEAD.</span>
+          <h2 class="section-title">Shaping Tomorrow’s Hospitality &amp; Healthcare Leaders</h2>
+          <p class="body-text">
+            At Runax, education is the beginning of a bigger journey. Our Kolkata campus brings professional learning and a vibrant student community together.
+          </p>
+          <p class="body-text">
+            Explore real working environments, from the front office and housekeeping lab to food production and beverage service. Find the course that fits your ambitions.
+          </p>
+          <a href="#programs" class="underlined-link">
+            <span>Discover Runax programs</span>
+            <svg class="inline-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="about-bento reveal" data-reveal="fade-left">
+          <div class="bento-card bento-photo">
+            <img src="assets/runax/food-lab.webp" alt="Students training in the Food Production Lab at Runax" loading="lazy" />
+            <span class="bento-label">Food Production Lab</span>
+          </div>
+          <div class="bento-card bento-photo">
+            <img src="assets/runax/front-office.webp" alt="Front office training at Runax campus" loading="lazy" />
+            <span class="bento-label">Front Office Lab</span>
+          </div>
+          <div class="bento-card bento-photo">
+            <img src="assets/runax/housekeeping.webp" alt="Housekeeping Lab training suite" loading="lazy" />
+            <span class="bento-label">Housekeeping Lab</span>
+          </div>
+          <div class="bento-card bento-excellence">
+            <span class="bento-kicker">EXCELLENCE</span>
+            <p class="bento-quote">A place to learn.<br />A place to grow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs & Studies Section -->
+    <section class="section programs-section" id="programs">
+      <div class="container">
+        <div class="section-header reveal" data-reveal="fade-up">
+          <span class="eyebrow">ACADEMIC OFFERINGS</span>
+          <h2 class="section-title">Programs &amp; Studies</h2>
+          <p class="section-sub">Find your direction. Build your skills. Take the next step towards your career.</p>
+        </div>
+
+        <div class="programs-grid">
+          <!-- Card 1: Hotel Management -->
+          <article class="program-card interactive-tilt reveal" data-reveal="fade-up" style="--delay: 0.05s">
+            <div class="program-media">
+              <img src="assets/runax/front-office.webp" alt="Hotel Management training at Runax" loading="lazy" />
+              <span class="program-tag">HOTEL OPERATIONS</span>
+            </div>
+            <div class="program-body">
+              <h3 class="program-title">Hotel Management</h3>
+              <p class="program-desc">Explore the business of luxury hotels, from guest experiences to day-to-day hotel operations.</p>
+              <ul class="program-list">
+                <li>Hotel operations</li>
+                <li>Food &amp; beverage service</li>
+                <li>Front office management</li>
+                <li>Professional career preparation</li>
+              </ul>
+              <button type="button" class="btn btn-outline-dark explore-course-btn" data-course="hotel">
+                Explore Course
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2: Hospitality Management -->
+          <article class="program-card interactive-tilt reveal" data-reveal="fade-up" style="--delay: 0.15s">
+            <div class="program-media">
+              <img src="assets/runax/housekeeping.webp" alt="Hospitality Management training at Runax" loading="lazy" />
+              <span class="program-tag">HOSPITALITY</span>
+            </div>
+            <div class="program-body">
+              <h3 class="program-title">Hospitality Management</h3>
+              <p class="program-desc">Master service excellence, guest relations, and global hospitality leadership across resorts and cruises.</p>
+              <ul class="program-list">
+                <li>Guest relations &amp; concierge</li>
+                <li>Accommodation &amp; housekeeping</li>
+                <li>Event &amp; resort management</li>
+                <li>Global hospitality placement</li>
+              </ul>
+              <button type="button" class="btn btn-outline-dark explore-course-btn" data-course="hospitality">
+                Explore Course
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 3: Culinary Management -->
+          <article class="program-card interactive-tilt reveal" data-reveal="fade-up" style="--delay: 0.25s">
+            <div class="program-media">
+              <img src="assets/runax/food-lab.webp" alt="Culinary Management kitchen lab at Runax" loading="lazy" />
+              <span class="program-tag">CULINARY</span>
+            </div>
+            <div class="program-body">
+              <h3 class="program-title">Culinary Management</h3>
+              <p class="program-desc">Bring creativity into the kitchen and explore the skills behind a career in the culinary world.</p>
+              <ul class="program-list">
+                <li>Culinary skills</li>
+                <li>Food preparation</li>
+                <li>Kitchen management</li>
+                <li>Practical learning</li>
+              </ul>
+              <button type="button" class="btn btn-outline-dark explore-course-btn" data-course="culinary">
+                Explore Course
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <p class="more-paths reveal" data-reveal="fade-up">
+          Specialized career pathways:
+          <a href="#hero-form" data-select-program="Hotel Management">Hotel Management</a> ·
+          <a href="#hero-form" data-select-program="Hospitality Management">Hospitality Management</a> ·
+          <a href="#hero-form" data-select-program="Culinary Management">Culinary Management</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section why-section" id="why-us">
+      <div class="container">
+        <div class="section-header reveal" data-reveal="fade-up">
+          <h2 class="section-title">Why Choose Us</h2>
+          <p class="section-sub">A learning environment built around your professional future.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card reveal" data-reveal="fade-up" style="--delay: 0.05s">
+            <div class="why-icon anim-draw-icon">
+              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M6 12C6 10.3431 7.34315 9 9 9H18C19.1046 9 20 9.89543 20 11V30C20 28.8954 19.1046 28 18 28H9C7.34315 28 6 26.6569 6 25V12Z" stroke="#171F52" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M34 12C34 10.3431 32.6569 9 31 9H22C20.8954 9 20 9.89543 20 11V30C20 28.8954 20.8954 28 22 28H31C32.6569 28 34 26.6569 34 25V12Z" stroke="#171F52" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M10 15H16M10 19H16M24 15H30M24 19H30" stroke="#B81D2F" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="why-title">Professional Learning</h3>
+            <p class="why-desc">Discover a range of management courses designed to prepare you for professional life.</p>
+            <span class="why-kicker">EDUCATION WITH PURPOSE</span>
+          </div>
+
+          <div class="why-card reveal" data-reveal="fade-up" style="--delay: 0.15s">
+            <div class="why-icon anim-draw-icon">
+              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M12 10V31M12 10C12 7.5 14 6 14 6V14C14 15.5 12 16 12 16M12 10C12 7.5 10 6 10 6V14C10 15.5 12 16 12 16" stroke="#171F52" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M27 6V31M27 6C30 6 31.5 10 31.5 14C31.5 17.5 29.5 19.5 27 19.5" stroke="#B81D2F" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="why-title">Practical Training &amp; Campus Labs</h3>
+            <p class="why-desc">Explore dedicated spaces for food production, front office, housekeeping and food &amp; beverage learning.</p>
+            <span class="why-kicker">LEARNING THROUGH EXPERIENCE</span>
+          </div>
+
+          <div class="why-card reveal" data-reveal="fade-up" style="--delay: 0.25s">
+            <div class="why-icon anim-draw-icon">
+              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <rect x="6" y="13" width="28" height="19" rx="3" stroke="#171F52" stroke-width="1.8"/>
+                <path d="M15 13V10C15 8.34315 16.3431 7 18 7H22C23.6569 7 25 8.34315 25 10V13" stroke="#171F52" stroke-width="1.8"/>
+                <path d="M6 21H34" stroke="#B81D2F" stroke-width="1.8"/>
+                <circle cx="20" cy="21" r="2.2" fill="#B81D2F"/>
+              </svg>
+            </div>
+            <h3 class="why-title">Career Opportunities</h3>
+            <p class="why-desc">Move towards your next chapter with training, placement services and global exposure.</p>
+            <span class="why-kicker">YOUR FUTURE IN FOCUS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Runax in Numbers Section -->
+    <section class="section numbers-section">
+      <div class="container">
+        <div class="section-header reveal" data-reveal="fade-up">
+          <span class="eyebrow">THE RUNAX EXPERIENCE</span>
+          <h2 class="section-title">Runax in numbers</h2>
+        </div>
+
+        <div class="numbers-grid">
+          <div class="number-item reveal" data-reveal="fade-up" style="--delay: 0.05s">
+            <div class="number-value" data-count="95" data-suffix="%">0%</div>
+            <div class="number-label">Placement support</div>
+          </div>
+          <div class="number-item reveal" data-reveal="fade-up" style="--delay: 0.12s">
+            <div class="number-value" data-count="15" data-suffix="+">0+</div>
+            <div class="number-label">Global hotel partners</div>
+          </div>
+          <div class="number-item reveal" data-reveal="fade-up" style="--delay: 0.19s">
+            <div class="number-value" data-count="10" data-suffix="K+">0K+</div>
+            <div class="number-label">Students trained</div>
+          </div>
+          <div class="number-item reveal" data-reveal="fade-up" style="--delay: 0.26s">
+            <div class="number-value" data-count="25" data-suffix="+">0+</div>
+            <div class="number-label">Expert mentors &amp; chefs</div>
+          </div>
+        </div>
+
+        <div class="numbers-cta reveal" data-reveal="fade-up">
+          <a href="#contact" class="btn btn-navy">Talk to Admissions</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Gallery Section -->
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header reveal" data-reveal="fade-up">
+          <span class="eyebrow">CAMPUS LIFE &amp; LABS</span>
+          <h2 class="section-title">Our Gallery</h2>
+          <p class="section-sub">Take a closer look at the spaces where learning comes to life.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <button type="button" class="gallery-card reveal" data-reveal="scale-in" data-index="0" style="--delay: 0.04s">
+            <img src="assets/runax/food-lab.webp" alt="Food Production Lab" loading="lazy" />
+            <span class="gallery-caption">
+              <span>Food Production Lab</span>
+              <span class="gallery-plus" aria-hidden="true">+</span>
+            </span>
+          </button>
+
+          <button type="button" class="gallery-card reveal" data-reveal="scale-in" data-index="1" style="--delay: 0.08s">
+            <img src="assets/runax/front-office.webp" alt="Front Office" loading="lazy" />
+            <span class="gallery-caption">
+              <span>Front Office</span>
+              <span class="gallery-plus" aria-hidden="true">+</span>
+            </span>
+          </button>
+
+          <button type="button" class="gallery-card reveal" data-reveal="scale-in" data-index="2" style="--delay: 0.12s">
+            <img src="assets/runax/classroom.webp" alt="Classroom" loading="lazy" />
+            <span class="gallery-caption">
+              <span>Classroom</span>
+              <span class="gallery-plus" aria-hidden="true">+</span>
+            </span>
+          </button>
+
+          <button type="button" class="gallery-card reveal" data-reveal="scale-in" data-index="3" style="--delay: 0.16s">
+            <img src="assets/runax/housekeeping.webp" alt="Housekeeping Lab" loading="lazy" />
+            <span class="gallery-caption">
+              <span>Housekeeping Lab</span>
+              <span class="gallery-plus" aria-hidden="true">+</span>
+            </span>
+          </button>
+
+          <button type="button" class="gallery-card reveal" data-reveal="scale-in" data-index="4" style="--delay: 0.20s">
+            <img src="assets/runax/food-beverage.webp" alt="Food &amp; Beverage Lab" loading="lazy" />
+            <span class="gallery-caption">
+              <span>Food &amp; Beverage Lab</span>
+              <span class="gallery-plus" aria-hidden="true">+</span>
+            </span>
+          </button>
+
+          <button type="button" class="gallery-card reveal" data-reveal="scale-in" data-index="5" style="--delay: 0.24s">
+            <img src="assets/runax/campus.webp" alt="Runax Campus" loading="lazy" />
+            <span class="gallery-caption">
+              <span>Runax Campus</span>
+              <span class="gallery-plus" aria-hidden="true">+</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mid-Page CTA Banner -->
+    <section class="cta-banner-section">
+      <div class="container cta-banner-grid">
+        <div class="cta-banner-copy reveal" data-reveal="fade-up">
+          <span class="eyebrow eyebrow-light">YOUR NEXT CHAPTER STARTS HERE</span>
+          <h2 class="cta-banner-title">Turn Your Ambition into an Extraordinary Career.</h2>
+          <p class="cta-banner-sub">
+            A world of possibility begins with a single step. Explore your interests and find your place at Runax.
+          </p>
+          <div class="cta-banner-buttons">
+            <a href="#hero-form" class="btn btn-white">Apply Now</a>
+            <a href="#contact" class="btn btn-outline-light">Begin Your Journey</a>
+          </div>
+        </div>
+        <div class="cta-banner-visual reveal" data-reveal="fade-left">
+          <img src="assets/runax/cta-professionals.png" alt="Chef and hospitality manager at Runax" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-header reveal" data-reveal="fade-up">
+          <span class="eyebrow">STUDENT STORIES</span>
+          <h2 class="section-title">What Our Students Are Saying</h2>
+          <p class="section-sub">Real stories from our alumni across hospitality and healthcare.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal" data-reveal="fade-up" style="--delay: 0.05s">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <blockquote class="testimonial-quote">
+              “The kitchen training labs at Runax are simply spectacular. The continuous hands-on knife skills, bakery techniques, and mentor chef sessions gave me the confidence to secure a pastry chef role in Dubai.”
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar">SK</div>
+              <div>
+                <div class="author-name">Suman Karmakar</div>
+                <div class="author-meta">Culinary Arts · Batch 2023</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal" data-reveal="fade-up" style="--delay: 0.15s">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <blockquote class="testimonial-quote">
+              “The grooming standards, language lab training, and front-desk software exposure prepared me for immediate recruitment. I was placed at Taj Bengal right during my final semester.”
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar">CR</div>
+              <div>
+                <div class="author-name">Catherine Roy</div>
+                <div class="author-meta">Hotel Management · Batch 2024</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal" data-reveal="fade-up" style="--delay: 0.25s">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <blockquote class="testimonial-quote">
+              “Hospitality Management at Runax provides real luxury hotel and guest-relations rotations. We learned front-desk PMS systems, event coordination, and service protocols practically.”
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar">PD</div>
+              <div>
+                <div class="author-name">Peter Dasgupta</div>
+                <div class="author-meta">Hospitality Management · Batch 2023</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Associates Section + Animated Scroller -->
+    <section class="section associates-section" id="associates">
+      <div class="container associates-grid">
+        <div class="associates-copy reveal" data-reveal="fade-up">
+          <span class="eyebrow">INDUSTRY CONNECTIONS</span>
+          <h2 class="section-title">Our Associates</h2>
+          <p class="body-text">
+            Meet some of the organisations featured in Runax’s associate network.
+          </p>
+          <a href="#contact" class="underlined-link">
+            <span>Explore our institute</span>
+            <svg class="inline-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="associates-logos-wrap reveal" data-reveal="fade-left">
+          <div class="associates-logos-grid">
+            <div class="partner-badge"><img src="assets/runax/assoc-1.webp" alt="Runax Hospitality Associate" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-2.webp" alt="Runax Hospitality Associate" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-3.webp" alt="Runax Hospitality Associate" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-4.webp" alt="Runax Hospitality Associate" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-5.webp" alt="Runax Hospitality Associate" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-6.webp" alt="Runax Hospitality Associate" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-7.webp" alt="Runax Hospitality Associate" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-8.webp" alt="Runax Hospitality Associate" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-9.webp" alt="Apollo Hospitals" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-10.webp" alt="AMRI Hospitals" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-11.webp" alt="IndiGo" loading="lazy" /></div>
+            <div class="partner-badge"><img src="assets/runax/assoc-12.webp" alt="Medica Hospitals" loading="lazy" /></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Infinite Animated Scroller -->
+      <div class="marquee-wrapper" aria-label="Industry associate network scroller">
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span class="marquee-pill">Taj Bengal</span>
+            <span class="marquee-pill">The Oberoi Grand</span>
+            <span class="marquee-pill">JW Marriott</span>
+            <span class="marquee-pill">ITC Royal Bengal</span>
+            <span class="marquee-pill">Hyatt Regency</span>
+            <span class="marquee-pill">Radisson Blu</span>
+            <span class="marquee-pill">Apollo Gleneagles</span>
+            <span class="marquee-pill">Fortis Healthcare</span>
+            <span class="marquee-pill">Hilton Worldwide</span>
+            <span class="marquee-pill">IndiGo Aviation</span>
+          </div>
+          <div class="marquee-content" aria-hidden="true">
+            <span class="marquee-pill">Taj Bengal</span>
+            <span class="marquee-pill">The Oberoi Grand</span>
+            <span class="marquee-pill">JW Marriott</span>
+            <span class="marquee-pill">ITC Royal Bengal</span>
+            <span class="marquee-pill">Hyatt Regency</span>
+            <span class="marquee-pill">Radisson Blu</span>
+            <span class="marquee-pill">Apollo Gleneagles</span>
+            <span class="marquee-pill">Fortis Healthcare</span>
+            <span class="marquee-pill">Hilton Worldwide</span>
+            <span class="marquee-pill">IndiGo Aviation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2027-28 Intake Banner -->
+    <section class="intake-banner-section">
+      <div class="intake-bg-campus" aria-hidden="true"></div>
+      <div class="container intake-grid">
+        <div class="intake-copy reveal" data-reveal="fade-up">
+          <span class="eyebrow">2027–28 INTAKE</span>
+          <h2 class="intake-title">Start Your <em class="text-crimson-italic">Journey.</em></h2>
+          <a href="#contact" class="btn btn-navy btn-lg">
+            <span>Talk to Admissions</span>
+            <svg class="btn-icon icon-arrow-ne" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M5 15L15 5M15 5H7M15 5V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="intake-visual reveal" data-reveal="fade-left">
+          <img src="assets/student-journey.png" alt="Runax student ready for hospitality career" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Campus Tour Section -->
+    <section class="contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal" data-reveal="fade-up">
+          <span class="eyebrow eyebrow-light">COME SAY HELLO</span>
+          <h2 class="contact-title">Plan to Tour<br />Campus</h2>
+          <p class="contact-sub">Meet our admissions team and discover your next step.</p>
+
+          <div class="contact-details">
+            <div class="contact-block">
+              <span class="contact-label">Campus Address</span>
+              <p>Runax Excellence Campus<br />Baligori, Newtown, Kolkata 700156</p>
+            </div>
+
+            <div class="contact-block">
+              <span class="contact-label">Admissions Hotline</span>
+              <p>
+                <a href="tel:+918961629333">+91 89616 29333</a><br />
+                <a href="tel:+918961639333">+91 89616 39333</a>
+              </p>
+            </div>
+
+            <div class="contact-block">
+              <span class="contact-label">Email Enquiries</span>
+              <p><a href="mailto:admission@runaxinstitute.com">admission@runaxinstitute.com</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card reveal" data-reveal="fade-left">
+          <h3 class="contact-card-title">Admissions Open 2027–28</h3>
+          <p class="contact-card-sub">Ask about courses, fees, scholarships or a campus visit.</p>
+
+          <form class="enquiry-form" id="footerEnquiryForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="footerName">Full name <span class="req">*</span></label>
+                <input type="text" id="footerName" name="fullName" placeholder="Enter student name" required />
+              </div>
+              <div class="form-group">
+                <label for="footerEmail">Email address <span class="req">*</span></label>
+                <input type="email" id="footerEmail" name="email" placeholder="Enter email" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="footerPhone">Phone number <span class="req">*</span></label>
+                <input type="tel" id="footerPhone" name="phone" placeholder="Phone number" required />
+              </div>
+              <div class="form-group">
+                <label for="footerCity">Current city</label>
+                <input type="text" id="footerCity" name="city" placeholder="City of residence" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="footerCourse">Course <span class="req">*</span></label>
+              <select id="footerCourse" name="program" required>
+                <option value="" disabled selected>Select a course</option>
+                <option value="Hotel Management">Hotel Management</option>
+                <option value="Hospitality Management">Hospitality Management</option>
+                <option value="Culinary Management">Culinary Management</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="footerMessage">Message</label>
+              <textarea id="footerMessage" name="query" rows="3" placeholder="What would you like to know?"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-navy btn-submit-inline">Submit</button>
+            <p class="form-helper">Review and send your enquiry in your email app.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="copyright">© 2026 Runax Institute of Hotel Management.</p>
+      <div class="footer-links">
+        <a href="#contact">Privacy Policy</a>
+        <a href="#top" class="back-to-top-link">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back-to-Top Button (especially handy on mobile) -->
+  <button type="button" class="floating-top-btn" id="floatingTopBtn" aria-label="Scroll back to top">
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M10 15V5M10 5L5 10M10 5L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- Gallery Lightbox Modal -->
+  <div class="modal-overlay" id="galleryModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Campus Gallery Preview">
+    <div class="lightbox-dialog">
+      <button type="button" class="modal-close" id="lightboxClose" aria-label="Close gallery preview">✕</button>
+      <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+      <img src="" alt="" id="lightboxImg" />
+      <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Course Details Modal -->
+  <div class="modal-overlay" id="courseModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="courseModalTitle">
+    <div class="course-dialog">
+      <button type="button" class="modal-close" id="courseModalClose" aria-label="Close course details">✕</button>
+      <span class="eyebrow" id="courseModalTag">HOSPITALITY</span>
+      <h3 class="course-modal-title" id="courseModalTitle">Hotel Management</h3>
+      <p class="course-modal-desc" id="courseModalDesc"></p>
+      <div class="course-modal-highlights">
+        <h4>Key Learning Modules</h4>
+        <ul id="courseModalList"></ul>
+      </div>
+      <div class="course-modal-actions">
+        <button type="button" class="btn btn-crimson" id="courseModalApply">Apply for this Program</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Sticky Bottom CTA Bar -->
+  <div class="mobile-cta-bar" id="mobileCtaBar">
+    <a href="tel:+918961629333" class="btn btn-navy btn-sm">Call Admissions</a>
+    <a href="#hero-form" class="btn btn-crimson btn-sm">Apply Now ↗</a>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
