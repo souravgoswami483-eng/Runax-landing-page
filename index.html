@@ -9,8 +9,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Show the intro loader only on the first visit of a session */
+    document.documentElement.classList.add('js');
+    try { if (sessionStorage.getItem('runaxIntroSeen')) document.documentElement.classList.add('no-loader'); } catch (e) {}
+  </script>
 </head>
 <body>
+  <!-- Intro Loader -->
+  <div class="intro-loader" id="introLoader" aria-hidden="true">
+    <img src="assets/runax/runax-logo.webp" alt="" class="intro-loader-logo" />
+    <div class="intro-loader-track"><div class="intro-loader-fill"></div></div>
+  </div>
+
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -69,7 +80,13 @@
   <main id="top">
     <!-- Hero Section -->
     <section class="hero-section">
-      <div class="hero-bg-image" aria-hidden="true"></div>
+      <div class="hero-bg-image" aria-hidden="true">
+        <div class="hero-slide is-active" style="--img: url('assets/runax/hero-banner-1.webp')"></div>
+        <div class="hero-slide" style="--img: url('assets/runax/campus.webp')"></div>
+        <div class="hero-slide" style="--img: url('assets/runax/food-lab.webp')"></div>
+        <div class="hero-slide" style="--img: url('assets/runax/front-office.webp')"></div>
+        <div class="hero-slide" style="--img: url('assets/runax/food-beverage.webp')"></div>
+      </div>
       <div class="hero-ambient" aria-hidden="true">
         <div class="hero-orb hero-orb-1"></div>
         <div class="hero-orb hero-orb-2"></div>
@@ -77,20 +94,20 @@
       </div>
 
       <div class="container hero-grid">
-        <div class="hero-content reveal" data-reveal="fade-up">
-          <div class="hero-eyebrow">
+        <div class="hero-content">
+          <div class="hero-eyebrow hero-stagger" style="--hd: 0ms">
             <span class="sparkle-pulse">✦</span>
             <span>RUNAX INSTITUTE OF HOTEL MANAGEMENT</span>
           </div>
           <h1 class="hero-title">
-            Your future starts here.<br />
-            <em class="text-crimson-italic">Your success</em><br />
-            begins at Runax.
+            <span class="line"><span style="--i: 0">Your future starts here.</span></span>
+            <span class="line"><span style="--i: 1"><em class="text-crimson-italic">Your success</em></span></span>
+            <span class="line"><span style="--i: 2">begins at Runax.</span></span>
           </h1>
-          <p class="hero-subtitle">
+          <p class="hero-subtitle hero-stagger" style="--hd: 420ms">
             Discover your potential in hotel, hospitality, and culinary management. Build the skills to turn your ambition into a professional future.
           </p>
-          <div class="hero-buttons">
+          <div class="hero-buttons hero-stagger" style="--hd: 540ms">
             <a href="#programs" class="btn btn-crimson btn-lg">
               <span>Explore Programs</span>
               <svg class="btn-icon icon-arrow-se" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -107,7 +124,7 @@
         </div>
 
         <!-- Hero Enquiry Form Card -->
-        <div class="hero-form-card reveal" id="hero-form" data-reveal="fade-left">
+        <div class="hero-form-card hero-stagger" id="hero-form" style="--hd: 300ms">
           <div class="form-card-header">
             <div>
               <h2 class="form-card-title">Start Your Journey</h2>
@@ -115,6 +132,7 @@
             </div>
             <span class="intake-badge">2027–28 INTAKE</span>
           </div>
+          <p class="form-card-lead">Share a few details and our admissions team will call you within 24 hours with course, fee and scholarship guidance.</p>
 
           <form class="enquiry-form" id="heroEnquiryForm" novalidate>
             <div class="form-row">
@@ -507,7 +525,8 @@
           </div>
         </div>
         <div class="cta-banner-visual reveal" data-reveal="fade-left">
-          <img src="assets/runax/cta-professionals.png" alt="Chef and hospitality manager at Runax" loading="lazy" />
+          <div class="cta-visual-glow" aria-hidden="true"></div>
+          <img src="assets/runax/cta-chef-server.webp" alt="A Runax culinary student holding a whisk beside a hospitality student in a suit carrying a silver cloche" width="1322" height="1190" loading="lazy" />
         </div>
       </div>
     </section>
@@ -646,6 +665,10 @@
         <div class="intake-copy reveal" data-reveal="fade-up">
           <span class="eyebrow">2027–28 INTAKE</span>
           <h2 class="intake-title">Start Your <em class="text-crimson-italic">Journey.</em></h2>
+          <p class="intake-sub">
+            Seats for the 2027–28 session are filling fast. Train in real hotel labs, learn from industry chefs and managers,
+            and step into a career with leading hotels, airlines and hospitals across India and abroad.
+          </p>
           <a href="#contact" class="btn btn-navy btn-lg">
             <span>Talk to Admissions</span>
             <svg class="btn-icon icon-arrow-ne" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -791,6 +814,9 @@
   </div>
 
   <!-- Toast Notification -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>

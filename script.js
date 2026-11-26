@@ -3,6 +3,38 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+
+  /* ------------------------------------------------------------------------
+     0. Intro Loader → Hero Choreography
+     ------------------------------------------------------------------------ */
+  const introLoader = document.getElementById('introLoader');
+  const playHero = () => requestAnimationFrame(() => root.classList.add('hero-in'));
+  const loaderSkipped = !introLoader || prefersReducedMotion || root.classList.contains('no-loader');
+
+  if (loaderSkipped) {
+    introLoader?.remove();
+    playHero();
+  } else {
+    root.style.overflow = 'hidden';
+    requestAnimationFrame(() => introLoader.classList.add('ready'));
+    const dismissLoader = () => {
+      introLoader.classList.add('done');
+      root.style.removeProperty('overflow');
+      try { sessionStorage.setItem('runaxIntroSeen', '1'); } catch (e) { /* storage blocked */ }
+      setTimeout(playHero, 250);
+      setTimeout(() => introLoader.remove(), 1000);
+    };
+    // Minimum ~1.2s so the progress line completes; never wait longer than 3s
+    const minTime = new Promise((r) => setTimeout(r, 1200));
+    const loaded = new Promise((r) => {
+      if (document.readyState === 'complete') r();
+      else window.addEventListener('load', r, { once: true });
+    });
+    Promise.race([Promise.all([minTime, loaded]), new Promise((r) => setTimeout(r, 3000))]).then(dismissLoader);
+  }
+
   /* ------------------------------------------------------------------------
      1. Lenis Smooth Scrolling (non-blocking, works on http & file://)
      ------------------------------------------------------------------------ */
@@ -36,17 +68,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroFormCard = document.getElementById('hero-form');
   const mobileCtaBar = document.getElementById('mobileCtaBar');
 
+  let lastScrollTop = window.scrollY;
   const handleScroll = () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    const progress = docHeight > 0 ? scrollTop / docHeight : 0;
 
     if (scrollProgress) {
-      scrollProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+      scrollProgress.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
     }
 
     if (siteHeader) {
       siteHeader.classList.toggle('scrolled', scrollTop > 16);
+      // Hide while reading downward, return as soon as the user scrolls up
+      const delta = scrollTop - lastScrollTop;
+      const drawerOpen = document.getElementById('menuToggle')?.getAttribute('aria-expanded') === 'true';
+      if (scrollTop < 240 || drawerOpen) {
+        siteHeader.classList.remove('nav-hidden');
+      } else if (Math.abs(delta) > 6) {
+        siteHeader.classList.toggle('nav-hidden', delta > 0);
+      }
+      lastScrollTop = scrollTop;
     }
 
     if (floatingTopBtn) {
@@ -125,31 +167,46 @@ document.addEventListener('DOMContentLoaded', () => {
      5. Staggered Scroll-Reveal Observer & Interactive 3D Card Tilt
      ------------------------------------------------------------------------ */
   const revealElements = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    document.documentElement.classList.add('js-reveal');
+
+  // After an element has revealed, drop the reveal class so its own hover
+  // transitions (shadow, border, tilt) run without the entrance delay.
+  const finishReveal = (el) => {
+    const delay = parseFloat(getComputedStyle(el).transitionDelay) || 0;
+    setTimeout(() => el.classList.remove('reveal'), delay * 1000 + 1200);
+  };
+
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    root.classList.add('js-reveal');
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
+            finishReveal(entry.target);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
     );
 
     revealElements.forEach((el) => revealObserver.observe(el));
-
-    // Safety fallback: ensure all elements become visible even if observer misses any
-    setTimeout(() => {
-      revealElements.forEach((el) => el.classList.add('is-visible'));
-    }, 2200);
   } else {
     revealElements.forEach((el) => el.classList.add('is-visible'));
   }
 
-  if (window.matchMedia('(pointer: fine)').matches) {
+  // Cursor spotlight: a soft gold glow tracks the mouse inside each card
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.program-card, .why-card, .testimonial-card, .number-item').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      });
+    });
+  }
+
+  if (window.matchMedia('(pointer: fine)').matches && !prefersReducedMotion) {
     document.querySelectorAll('.interactive-tilt, .why-card, .testimonial-card').forEach((card) => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -164,36 +221,115 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ------------------------------------------------------------------------
+     5b. Hero Banner Slideshow (cross-fade + slow zoom, pauses on hover/tab hide)
+     ------------------------------------------------------------------------ */
+  const heroSlides = [...document.querySelectorAll('.hero-slide')];
+  const SLIDE_MS = 6000;
+  let slideIndex = 0;
+  let slideTimer = null;
+
+  const showSlide = (next) => {
+    slideIndex = (next + heroSlides.length) % heroSlides.length;
+    heroSlides.forEach((s, i) => s.classList.toggle('is-active', i === slideIndex));
+  };
+
+  const startSlides = () => {
+    clearInterval(slideTimer);
+    slideTimer = setInterval(() => showSlide(slideIndex + 1), SLIDE_MS);
+  };
+
+  if (heroSlides.length > 1 && !prefersReducedMotion) {
+    startSlides();
+    document.addEventListener('visibilitychange', () => (document.hidden ? clearInterval(slideTimer) : startSlides()));
+  }
+
+  /* ------------------------------------------------------------------------
+     5c. Custom Cursor — dot + lagging ring, reacts to links and gallery photos
+     ------------------------------------------------------------------------ */
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorRing = document.querySelector('.cursor-ring');
+  const cursorLabel = document.querySelector('.cursor-label');
+
+  if (cursorDot && cursorRing && window.matchMedia('(hover: hover) and (pointer: fine)').matches && !prefersReducedMotion) {
+    root.classList.add('has-cursor');
+    let mouseX = -100, mouseY = -100, ringX = -100, ringY = -100;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    }, { passive: true });
+
+    const followRing = () => {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+      requestAnimationFrame(followRing);
+    };
+    requestAnimationFrame(followRing);
+
+    const setState = (cls, on) => {
+      cursorDot.classList.toggle(cls, on);
+      cursorRing.classList.toggle(cls, on);
+    };
+
+    document.addEventListener('mouseover', (e) => {
+      const view = e.target.closest('.gallery-card');
+      const field = e.target.closest('input, textarea');
+      const link = e.target.closest('a, button, select, label, [role="button"]');
+      setState('is-view', !!view);
+      if (cursorLabel) cursorLabel.textContent = view ? 'View' : '';
+      setState('is-hover', !view && !!link);
+      setState('is-hidden', !!field);
+    });
+
+    document.addEventListener('mousedown', () => cursorRing.classList.add('is-down'));
+    document.addEventListener('mouseup', () => cursorRing.classList.remove('is-down'));
+    document.documentElement.addEventListener('mouseleave', () => setState('is-hidden', true));
+    document.documentElement.addEventListener('mouseenter', () => setState('is-hidden', false));
+  }
+
+  /* ------------------------------------------------------------------------
      6. Animated Number Counters ("Runax in numbers")
      ------------------------------------------------------------------------ */
   const numberElements = document.querySelectorAll('.number-value[data-count]');
-  const animateCounter = (el) => {
+  const animateCounter = (el, index = 0) => {
     const target = Number(el.dataset.count || 0);
     const suffix = el.dataset.suffix || '';
-    const duration = 1400;
-    const startTime = performance.now();
-
-    const tick = (now) => {
-      const elapsed = now - startTime;
-      const t = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = `${Math.round(target * eased)}${suffix}`;
-      if (t < 1) requestAnimationFrame(tick);
-    };
-
-    requestAnimationFrame(tick);
+    if (prefersReducedMotion) {
+      el.textContent = `${target}${suffix}`;
+      return;
+    }
+    const duration = 2200;
+    // Start each counter in step with its card's staggered entrance
+    setTimeout(() => {
+      const startTime = performance.now();
+      el.classList.add('counting');
+      const tick = (now) => {
+        const t = Math.min((now - startTime) / duration, 1);
+        const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t); // ease-out expo: fast roll, gentle settle
+        el.textContent = `${Math.round(target * eased)}${suffix}`;
+        if (t < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          el.classList.remove('counting');
+          el.classList.add('counted');
+        }
+      };
+      requestAnimationFrame(tick);
+    }, 150 + index * 120);
   };
 
   const counterObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          animateCounter(entry.target);
+          animateCounter(entry.target, [...numberElements].indexOf(entry.target));
           observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.4 }
+    { threshold: 0.6 }
   );
 
   numberElements.forEach((el) => counterObserver.observe(el));
